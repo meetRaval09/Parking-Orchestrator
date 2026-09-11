@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Entrance Phase v2" id="xwBrr051WNTKeRYYBc01">
-    <mxGraphModel dx="2628" dy="1408" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -55,7 +55,7 @@
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-13" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-22">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ghtv2KbVDAC2pzOsrVqX-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Timer Finished, Camera Check The Parking Spot." vertex="1">
+        <mxCell id="ghtv2KbVDAC2pzOsrVqX-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Timer Finished, Camera Check The Parking Spot. Database Status : RUNNING / Record Maintained, Not Deleted" vertex="1">
           <mxGeometry height="100" width="190" x="1230" y="560" as="geometry" />
         </mxCell>
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-15" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-41">
@@ -204,7 +204,7 @@
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-47" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-52">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ghtv2KbVDAC2pzOsrVqX-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Service Department Will Notified. Parking Spot Free. Status : Repair / Record Updated, Not Deleted&lt;/div&gt;" vertex="1">
+        <mxCell id="ghtv2KbVDAC2pzOsrVqX-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Service Department Will Notified. Parking Spot Free. Status : MAINTENANCE / Record Updated, Not Deleted&lt;/div&gt;" vertex="1">
           <mxGeometry height="90" width="170" x="702.5" y="1205" as="geometry" />
         </mxCell>
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-49" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-69">
@@ -287,13 +287,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="ghtv2KbVDAC2pzOsrVqX-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Vehicle Parked To Neutral Repair Stop. Parking Spot Release When It Got Parked In Repair Spot. Original Parking Spot Release. Database Status : Broken / Record Updated, Not Deleted." vertex="1">
+        <mxCell id="ghtv2KbVDAC2pzOsrVqX-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Vehicle Parked To Neutral Repair Stop. Parking Spot Release When It Got Parked In Repair Spot. Original Parking Spot Release. Database Status : MAINTENANCE / Record Updated, Not Deleted." vertex="1">
           <mxGeometry height="110" width="295" x="995" y="1450" as="geometry" />
         </mxCell>
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-72" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ghtv2KbVDAC2pzOsrVqX-78" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ghtv2KbVDAC2pzOsrVqX-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Up top Camera Which Checking Alignment Of The Car, The Rectangle Of The Parking Would Be 800*800mm.&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The Vehicle Needs Between 2cm to 4cm Distance Frame inside from all sides make alignment correct and park the vehicle successfully.&lt;/div&gt;" vertex="1">
+        <mxCell id="ghtv2KbVDAC2pzOsrVqX-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Up top Camera Which Checking Alignment Of The Car, The Rectangle Of The Parking Would Be 800*800mm.&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The Vehicle Needs Between 2cm to 4cm Distance Frame inside from all sides make alignment correct and park the vehicle successfully.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Database Status : PROCESSING / Record Updated, Not Deleted&lt;/div&gt;" vertex="1">
           <mxGeometry height="150" width="295" x="2130" y="700" as="geometry" />
         </mxCell>
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-74" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-80">
@@ -318,7 +318,7 @@
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-79" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ghtv2KbVDAC2pzOsrVqX-83" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ghtv2KbVDAC2pzOsrVqX-80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="I need some solution which can give me real time alignment from all sides [I think Up top Camera Is the Solution]. when vehicle hit correct alignment, LED turns Green. Database Status : Parked / Record : Updated, Not Deleted." vertex="1">
+        <mxCell id="ghtv2KbVDAC2pzOsrVqX-80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="I need some solution which can give me real time alignment from all sides [I think Up top Camera Is the Solution]. when vehicle hit correct alignment, LED turns Green. Database Status : PROCESSING / Record : Updated, Not Deleted." vertex="1">
           <mxGeometry height="110" width="242.5" x="2156.25" y="1100" as="geometry" />
         </mxCell>
         <mxCell id="ghtv2KbVDAC2pzOsrVqX-81" edge="1" parent="1" source="ghtv2KbVDAC2pzOsrVqX-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ghtv2KbVDAC2pzOsrVqX-85">
