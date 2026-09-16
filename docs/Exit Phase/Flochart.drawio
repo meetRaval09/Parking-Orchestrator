@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="cdZMiYx2nAV3V1TuRqV5">
+    <mxGraphModel dx="1051" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-3" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="Start Exit Phase" vertex="1">
+          <mxGeometry height="30" width="100" x="375" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-5" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Vehicle Moves Out Of The Parking.&lt;/div&gt;&lt;div&gt;Timer Starts For Parking Space [2min].&lt;/div&gt;&lt;div&gt;Database Status : EXIT_PROCESSING / Record Updated, Not Deleted&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="205" x="323" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-10" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-11" connectable="0" parent="4eMkqqQ1BGeuQWAjG_wm-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yes" vertex="1">
+          <mxGeometry relative="1" x="-0.2053" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-22" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4eMkqqQ1BGeuQWAjG_wm-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-23" connectable="0" parent="4eMkqqQ1BGeuQWAjG_wm-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.2089" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-4" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="If Driver Pulls Back" vertex="1">
+          <mxGeometry height="90" width="100" x="375.5" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-13" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-14" connectable="0" parent="4eMkqqQ1BGeuQWAjG_wm-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yes" vertex="1">
+          <mxGeometry relative="1" x="-0.2364" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-19" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-20" connectable="0" parent="4eMkqqQ1BGeuQWAjG_wm-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.24" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-9" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="If Pulling Back Under 2min" vertex="1">
+          <mxGeometry height="100" width="110" x="540" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-17" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="4eMkqqQ1BGeuQWAjG_wm-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="590" />
+              <mxPoint x="210" y="45" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Normally Timer Stops.&lt;/div&gt;&lt;div&gt;Database Status : Parked / Record Updated , Not Deleted&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="145" x="522.5" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-16" edge="1" parent="1" source="4eMkqqQ1BGeuQWAjG_wm-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4eMkqqQ1BGeuQWAjG_wm-15" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="60" as="sourcePoint" />
+            <mxPoint x="415" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-15" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Car Parked Inside Spot" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-18" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="700" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="4eMkqqQ1BGeuQWAjG_wm-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="640" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
