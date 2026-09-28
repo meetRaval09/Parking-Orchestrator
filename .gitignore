@@ -1,8 +1,7 @@
-# Files the Claude desktop app drops into this folder.
-# They are conversation attachments, not part of this project.
-Claude outputs/
-
-# OS / editor noise
+# OS noise
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# draw.io backups
+*.bkp
