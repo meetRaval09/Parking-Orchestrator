@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="Exit Phase" id="yHBrFm8m9m36p1V9DYZI">
-    <mxGraphModel dx="1236" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <diagram name="Parking Phase" id="yHBrFm8m9m36p1V9DYZI">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -447,7 +447,7 @@
         <mxCell id="Fp-oTi0WLXWTKvn4Gbrl-155" edge="1" parent="1" source="Fp-oTi0WLXWTKvn4Gbrl-152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Fp-oTi0WLXWTKvn4Gbrl-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Fp-oTi0WLXWTKvn4Gbrl-152" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Re-assign: assigned_spot = new spot.&lt;br/&gt;   │       New spot LED green, &quot;Proceed Here&quot;.&lt;br/&gt;   │       Blocked spot LED red, &quot;Go To Spot n&quot;." vertex="1">
+        <mxCell id="Fp-oTi0WLXWTKvn4Gbrl-152" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;Re-assign: assigned_spot = new spot.&lt;/div&gt;&lt;div&gt;New spot LED green, &quot;Proceed Here&quot;.&lt;/div&gt;Blocked spot LED red, &quot;Go To Spot n&quot;." vertex="1">
           <mxGeometry height="110" width="200" x="1730" y="955" as="geometry" />
         </mxCell>
         <mxCell id="Fp-oTi0WLXWTKvn4Gbrl-159" edge="1" parent="1" source="Fp-oTi0WLXWTKvn4Gbrl-157" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Fp-oTi0WLXWTKvn4Gbrl-122">
