@@ -13,7 +13,8 @@
 | Load Cell | HX711 | Rasberry Pi 3 | --- | Strain-gauge transducer, millivolt output, no digital interface |
 | HX711 | Arduino | Rasberry Pi 3 | C++ | Amplifies and digitises the load cell segnal to measure weight |
 Entrance Camera | Rasberry Pi 3 | Rasberry Pi 3 | Python | Captures vehicle details, connects to pi directly via CSI and USB |
-Servo Motor | Arduino | Rasberry Pi 3 - open/close intent Arduino - abort close  | C++ | Barrier that lets Vehicle pass | 
+Servo Motor | Arduino | Rasberry Pi 3 - open/close intent Arduino - abort close  | C++ | Barrier that lets Vehicle pass |
+| Breadboard | --- | --- | --- | Passive wiring platform; carries connection between Arduino and components | 
 Backup Battery | --- | --- | --- | Powers the Servo Motor in case of power cut |
 
 
