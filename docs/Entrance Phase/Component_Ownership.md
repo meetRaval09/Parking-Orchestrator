@@ -4,18 +4,18 @@
 
 ## Entrance Phase - Component Ownership Table
 
-| Component | Hardware Owner | Decision Owner | Controlling Programming Language | Notes |
-|---|---|---|---|---|
-| Ultrasonic Distance Sensor (HC-SR04) | Arduino | Rasberry Pi 3 | C++ | Senses the approaching vehicle |
-| Entrance LED Light (Red/Green) | Arduino | Rasberry Pi 3 | C++ | Shows wether the vehicle may enter |
-| Entrance LCD Screen | Arduino | Rasberry Pi 3 | C++ | Shows the related message |
-| RFID Reader (RC522) - entrance unit, 1 of 6 | Arduino | Rasberry Pi 3 | C++ | Reads the tag; System remembers the Vehicle |
-| Load Cell | HX711 | Rasberry Pi 3 | --- | Strain-gauge transducer, millivolt output, no digital interface |
-| HX711 | Arduino | Rasberry Pi 3 | C++ | Amplifies and digitises the load cell segnal to measure weight |
-Entrance Camera | Rasberry Pi 3 | Rasberry Pi 3 | Python | Captures vehicle details, connects to pi directly via CSI and USB |
-Servo Motor | Arduino | Rasberry Pi 3 - open/close intent Arduino - abort close  | C++ | Barrier that lets Vehicle pass |
-| Breadboard | --- | --- | --- | Passive wiring platform; carries connection between Arduino and components | 
-Backup Battery | --- | --- | --- | Powers the Servo Motor in case of power cut |
+| Component | Hardware Owner | Decision Owner | Controlling Programming Language |
+|---|---|---|---|
+| Ultrasonic Distance Sensor (HC-SR04) | Arduino | Rasberry Pi 3 | C++ ||
+| Entrance LED Light (Red/Green) | Arduino |
+| Entrance LCD Screen | Arduino | Rasberry Pi 3 | C++ 
+| RFID Reader (RC522) - entrance unit, 1 of 6 | Arduino | Rasberry Pi 3 | C++ |
+| Load Cell | HX711 | Rasberry Pi 3 | --- |
+| HX711 | Arduino | Rasberry Pi 3 | C++ |
+Entrance Camera | Rasberry Pi 3 | Rasberry Pi 3 | Python |
+Servo Motor | Arduino | Rasberry Pi 3 - open/close intent Arduino - abort close  | C++ |
+| Breadboard | --- | --- | --- | 
+Backup Battery | --- | --- | --- |
 
 
 ## Entrance Phase - Data Ownership Table
@@ -43,4 +43,5 @@ Spot State -- (FREE/RESERVED/HELP/OCCUPIED) | Rasberry Pi 3 | Entrance (FREE->RE
 HX711 | Connected to Arduino helps measuring weight of the object, purpose is to identify correct object (vehicle) allowed to enter parking |
 | Entrance Camera | Capturing vehicle details (front,number plate,color) to insert vehicle records into database |
 Servo Motor | It's a barrier that allows vehicle to enter parking premises , uplift 90* degree |
+Breadboard | Passive wiring platform; carries connection between Arduino and components |
 | Backup Battery | powers servo motor in case of power cut, prevents damage to vehicle | 
