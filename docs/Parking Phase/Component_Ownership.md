@@ -9,4 +9,3 @@
 | RFID Reader (RC577) | Arduino | Rasberry Pi 3 | C++ |
 | Spot LED (Red/Green) | Arduino | Rasberry Pi 3 | C++ |
 | Spot LCD Screen | Arduino | Rasberry Pi 3 | C++ |
-| Occupancy Sensor | 
