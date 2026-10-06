@@ -6,9 +6,9 @@
 
 | Component | Hardware Owner | Decision Owner | Controlling Programming Language |
 |---|---|---|---|
-| Ultrasonic Distance Sensor (HC-SR04) | Arduino | Rasberry Pi 3 | C++ ||
-| Entrance LED Light (Red/Green) | Arduino |
-| Entrance LCD Screen | Arduino | Rasberry Pi 3 | C++ 
+| Ultrasonic Distance Sensor (HC-SR04) | Arduino | Rasberry Pi 3 | C++ |
+| Entrance LED Light (Red/Green) | Arduino | Rasberry Pi 3 | C++ |
+| Entrance LCD Screen | Arduino | Rasberry Pi 3 | C++ |
 | RFID Reader (RC522) - entrance unit, 1 of 6 | Arduino | Rasberry Pi 3 | C++ |
 | Load Cell | HX711 | Rasberry Pi 3 | --- |
 | HX711 | Arduino | Rasberry Pi 3 | C++ |
