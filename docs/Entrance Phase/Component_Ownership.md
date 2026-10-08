@@ -2,7 +2,7 @@
 
 ### The primary purpose of this document is to establish which digital formulation for controlling each physical component.
 
-## Entrance Phase - Component Ownership Table
+## Component Ownership Table
 
 | Component | Hardware Owner | Decision Owner | Controlling Programming Language |
 |---|---|---|---|
@@ -18,7 +18,7 @@ Servo Motor | Arduino | Rasberry Pi 3 - open/close intent Arduino - abort close 
 Backup Battery | --- | --- | --- |
 
 
-## Entrance Phase - Data Ownership Table
+## Data Ownership Table
 
 | Data | Owner | Updated | Notes |
 |---|---|---|---|
