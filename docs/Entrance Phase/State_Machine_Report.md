@@ -41,7 +41,7 @@
 ### It is therefore a mode flag, not a state -
 
 | Flag | Set When | Effect |
-|---|---|---|---|
+|---|---|---|
 | <b>WEIGHT_AVAILABLE</b> | false on HX711 fault | <b>IDENTIFYING</b> skips the weight step; record flagged <b>WEIGHT_UNKNOWN</b> |
 | <b>IMAGE_AVAILABLE</b> | false on camera fault | <b>IDENTIFYING</b> skips capture; record flagged <b>IMAGE_UNKNOWN |
 
@@ -53,3 +53,60 @@
 
 | ID | Event | Source |
 |---|---|---|
+| E1 | <b>Object_detected</b> | Ultrasonic below threshold |
+| E2 | <b>Object_cleared</b> | Ultrasonic above threshold |
+| E3 | <b>vehicle_settled</b> | Distance stable at read position for T. |
+| E4 | <b>tag_read(uid)</b> | Entrance RC522 |
+| E5 | <b>read_timeout</b> | No tag within T<subset>2</subset> |
+| E6 | <b>attempts_exhausted</b> | Attempt counter reached limit |
+| E7 | <b>identity_complete</b> | Record created and found |
+| E8 | <b>identity_failed</b> | Record lookup error |
+| E9 | <b>spot_reserved(n)</b> | Spot machine confirmed <b>FREE->RESERVED</b> |
+| E10 | <b>no_spot_free</b> | No spot in state <b>FREE</b> |
+| E11 | <b>clearance</b> | Entrance clearance beam broken, the restored |
+| E12 | <b>open_timeout</b> | No clearance within T<subset>3</subset> | 
+| E13 | <b>barrier_closed</b> | Servo reached closed position |
+| E14 | <b>spot_became_free</b> | Spot machine reported any spot -> <b>FREE</b> |
+| E15 | <b>staff_clear</b> | Staff reset the gate |
+| E16 | <b>sensor_fault(src) | HX711 or camera reported unavailable |
+
+# 3. Transition Table -
+
+| No. | Current | Event | Guard | Action | Next |
+|---|---|---|---|---|---|
+| T1 | <b>IDLE</b> | E1 | --- | Start approach timer | <b>APPROACHING</b> |
+| T2 | <b>APPROACHING</b> | E3 | --- | <b>Attempts = 0</b>; screen <b>Present Tag</b> | <b>READING_TAG</b> |
+| T3 | <b>APPROACHING</b> | E2 | --- | Cancel timer | <b>IDLE</b> |
+| T4 | <b>READING_TAG</b> | E4 | --- | Hold UID | <b>IDENTIFYING</b> |
+| T5 | <b>READING_TAG</b> | E5 | <b>Attempts < limit | <b>Attempts + 1; screen <b>Try Again</b> | <b>READING_TAG</b> |
+| T6 | <b>READING_TAG</b> | E6 | --- | Notify staff; screen <b>Assistance Coming</b> | <b>REFUSED_UNREADABLE</b> |
+| T7 | <b>READING_TAG</b> | E2 | --- | Abandon | <b>IDLE</b> | 
+| T8 | <b>IDENTIFYING</b> | E7 | --- | Create or update record; status <b>PROCESSING</b> | <b>ASSIGNING</b> |
+| T9 | <b>IDENTIFYING</b> | E8 | --- | Notify staff | <b>REFUSED_UNREADABLE</b> |
+| T10 | <b>IDENTIFYING</b> | E16 | --- | Cleared the affected mode flag; flag the record; continue. | <b>IDENTIFYING</b> |
+| T11 | <b>ASSIGNING</b> | E9 | --- | Write <b>assigned spot = n; screen <b>Go To Spot n</b> | <b>OPENING</b> |
+| T12 | <b>ASSIGNING</b> | E10 | --- | Screen <b>Car Park Full</b> | <b>REFUSED_FULL</b> |
+| T13 | <b>OPENING</b> | E11 | --- | --- | <b>WAITING_CLEARANCE</b> |
+| T14 | <b>WAITING_CLEARANCE</b> | E11 | --- | Command close | <b>CLOSING</b> |
+| T15 | <b>WAITING_CLEARANCE</b> | E12 | --- | Command close; release reservation; spot -> <b>FREE</b> | 
+| T16 | <b>CLOSING</b> | E13 | --- | LED red; screen default; hand vehicle to parking phase | <b>IDLE</b> |
+| T17 | <b>REFUSED_FULL</b> | E14 | Vehicle still at gate | Re-enter assignment | <b>ASSIGNING</b> |
+| T18 | <b>REFUSED_FULL</b> | E2 | --- | Discard record | <b>IDLE</b> |
+| T19 | <b>REFUSED_UNREADABLE</b> | E15 | --- | Reset | <b>IDLE</b> |
+
+### T15 is the transition worth reading twice. A vehicle that is granted entry but never passes through must not keep a spot reserved. Without it, every abandoned approach permanently costs the car park one day.
+
+## Unexpected events -
+
+### Filling every state * event cell produce a 10 * 16 grid, most of it noise. The policy instead: 
+
+#### <u>Any event not listed above is ignored and logged. It does not change state.</u>
+
+### Two exception, which are listed because ignoring them would be wrong -
+
+| Current | Event | Handling |
+|---|---|---|
+| <b>OPENING</b>,<b>WAITING_CLEARANCE</b>,<b>CLOSING</b> | E4 <b>tag_read</b> | Ignored. A second tag presented while a car is passing must not start a new entry sequence. | 
+| any | E16 <b>sensor_fault</b> | Clears the mode flag immediately, in any state. Does not change state. |
+
+## The grid was still checked cell by cell. The document records only the cells whose answer is not "ignore".
