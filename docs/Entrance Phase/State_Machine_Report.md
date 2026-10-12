@@ -110,3 +110,9 @@
 | any | E16 <b>sensor_fault</b> | Clears the mode flag immediately, in any state. Does not change state. |
 
 ## The grid was still checked cell by cell. The document records only the cells whose answer is not "ignore".
+
+# 4. Diagram -
+
+<p align="center">
+    <img src="./Entrance_Phase_State_Machine.png" alt="System Architecture" width="800">
+</p>
