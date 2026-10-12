@@ -109,10 +109,41 @@
 | <b>OPENING</b>,<b>WAITING_CLEARANCE</b>,<b>CLOSING</b> | E4 <b>tag_read</b> | Ignored. A second tag presented while a car is passing must not start a new entry sequence. | 
 | any | E16 <b>sensor_fault</b> | Clears the mode flag immediately, in any state. Does not change state. |
 
-## The grid was still checked cell by cell. The document records only the cells whose answer is not "ignore".
+### The grid was still checked cell by cell. The document records only the cells whose answer is not "ignore".
 
 # 4. Diagram -
 
 <p align="center">
     <img src="./Entrance_Phase_State_Machine.png" alt="System Architecture" width="800">
 </p>
+
+# 5. Invariants -
+
+## True in every state, at all times :
+
+### 1. The barrier opens only when a spot is <b>RESERVED</b> for the vehicle at the gate.
+### 2. At most one vehicle is being processed at the gate at any movement.
+### 3. <b>FREE -> RESERVED</b> is the only entry into <b>RESERVED</b>, and only this phase commands it.
+### 4. No vehicle record exist without a tag UID.
+### 5. The barrier never closes while the clearance beam is broken - enforced on the Arduino, not by this machine.
+### 6. Every state except <b>IDLE</b> has a timeout. No state can be occupied indefinitely without an external event.
+### 7. Leaving <b>ASSIGNING</b> without reaching <b>CLOSING</b> release the reservation.
+
+# Failure and degraded behaviour -
+
+| Failure | Detection | Response | Entry still possible? |
+|---|---|---|---|
+| HX711/load cell | No valid reading within timeout | <b>WEIGHT_AVAILABLE = false</b>; record flagged <b>WEIGHT_UNKNOWN</b> | Yes |
+| Entrance camera | Capture error or no frame | <b>IMAGE_AVAILABLE = false</b>; record flagged <b>IMAGE_UNKNOWN</b> | Yes |
+| Entrance RFID reader | Attempts exhausted on every vehicle | <b>REFUSED_UNREADABLE</b>; staff notified | No |
+| Servo/barrier | No close confirmation within timeout | Gate out of service; staff notified | No |
+| Power loss | --- | Backup battery holds the servo. On restore the barrier position is unknown: command close, then <b>IDLE</b> | After re-init |
+
+# Interaction with other machines -
+
+| This machine | Event in | Causes |
+|---|---|---|
+| <b>ASSIGNING -> OPENING</b> | T11 | Spot n: <b>FREE -> RESERVED</b> |
+| <b>WAITING_CLEARANCE -> CLOSING</b> on timeout | T15 | Spot n: <b>RESERVED -> FREE</b> |
+| <b>CLOSING -> IDLE</b> | T16 | Vehicle enters <b>PROCESSING</b>; control passes to the parking phase |
+| <b>REFUSED_FULL -> ASSIGNING</b> | T17 | Triggered by the spot machine reporting any spot -> <b>FREE</b> | 
