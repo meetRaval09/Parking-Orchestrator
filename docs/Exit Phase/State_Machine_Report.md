@@ -80,3 +80,34 @@
 | <b>OPENING</b> | X9 <b>beam_restored</b> | Ignored. Critical - see lamda5. |
 | <b>OPENING</b>,<b>IN_GATE</b>,<b>CLOSING</b> | X3 <b>tag_read</b> | Ignored. A second tag presented while a car is passing must not start a new exit. |
 | <b>IDLE</b> | X9 <b>beam_restored</b> | Ignored. Idle beam noise is not a departure. |
+
+# 4. Invariants -
+
+### 1. The barrier opens only when an open vehicle record exist for the tag presented.
+### 2. status <b>EXIT</b> and the spot release happen only on <b>beam_restored</b> after <b>beam_broken</b> - never on the tag read.
+### 3. The barrier never closes while the beam is broken. Enforced on the Arduino.
+### 4. At most one vehicle is processed at the gate at a time.
+### 5. Every state except <b>IDLE</b> has a timeout.
+### 6. A vehicle that opens the gate but does not leave keeps its spot.
+
+### Invariant 2 is the one this phase exist to guarantee. a tag read proves the car is at the gate; it does not prove the car left. Release the spot on the read and a driver who presents a tag then reverse back in has their spot given to an incoming car while they are still inside it. That is the entrance race condition arriving through the exit - same failure, different door. Invariant 6 is the same statement from the vehicle's side.
+
+# 5. Failure and degraded behaviour -
+
+| Failure | Response | Does the gate work? |
+|---|---|---|
+| Exit reader fault | <b>REFUSED</b>/<b>UNREADABLE</b>; staff open manually | No - no automatic exits |
+| Beam stuck broken | No <b>beam_restored</b>; barrier stays open past timeout; staff notified | Degraded, gate held open |
+| Beam stuck clear | <b>beam_restored</b> in <b>OPENING</b> is ignored; <b>open_timeout</b> fires; barrier closes; spot not released |
+| Servo fault | No close confirmation; gate out of service; staff notified | No |
+| Power loss | Backup battery holds the servo. On restore, barrier position unknown; command closed, then <b>IDLE</b>. | After re-init |
+
+## Why <b>IN_GATE</b> is a separate state -
+
+### It looks redundant - the barrier is open in both <b>OPENING</b> and <b>IN_GATE</b>, It isn't, and the stuck-clear row above is why.
+
+### If the two were one state, a beam that is permanently reading "clear" would deliver <b>beam_restored</b> immediately after the barrier opened. The machine would mark the vehicle <b>EXIT</b>, free its spot, and close the barrier - all while the car was still sitting in front ot it. A broken sensor would silently corrupt the database.
+
+### With <b>IN_GATE</b> in the way, beam_restored</b> is only meaningful after <b>beam_broken</b>. A stuck-clear beam can never produce that sequence, so the machine times out instead and changes nothing. The failure becomes visible rather that silent.
+
+### That's the general principle, and it's worth stating in the report: an event that only means something in a sequence needs a state to record that the sequence started. One extra state converts a silent data-corruption bug into a timeout and a staff alert
