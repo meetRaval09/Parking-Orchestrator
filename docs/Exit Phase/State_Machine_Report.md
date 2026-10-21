@@ -111,3 +111,12 @@
 ### With <b>IN_GATE</b> in the way, beam_restored</b> is only meaningful after <b>beam_broken</b>. A stuck-clear beam can never produce that sequence, so the machine times out instead and changes nothing. The failure becomes visible rather that silent.
 
 ### That's the general principle, and it's worth stating in the report: an event that only means something in a sequence needs a state to record that the sequence started. One extra state converts a silent data-corruption bug into a timeout and a staff alert
+
+# 7. Interaction with other machines -
+
+| This machine | Transition | Causes |
+|---|---|---|
+| Exit Gate | X-T12 | Vehicle -> <b>EXIT</b> (terminal) |
+| Exit Gate | X-T12 | Spot n: <b>OCCUPIED -> FREE</b> |
+| Exit Gate | X-T11 | Nothing, The timeout path deliberately causes no transition elsewhere. |
+| Spot -> <b>FREE</b> | broadcast | Reaches every entrance <b>REFUSED_FULL</b> and every parking <b>WAITING_FOR_SPOT</b> session |
