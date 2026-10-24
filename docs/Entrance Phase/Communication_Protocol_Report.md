@@ -48,3 +48,16 @@
 # 043,SERVO,ENT,OPEN*12      Pi --> Arduino
 # 043,NAK,BUSY*08            Arduino --> Pi
 
+# 1.3 Message catalogue - entrance phase 
+
+## Pi --> Arduino (commands)
+
+| Verb | Args | Effect |
+|---|---|---|
+| <b>LED</b> | <b>ENT</b>, <b>RED</b> / <b>GREEN</b> / <b>OFF</b> | Set entrance LED |
+| <b>LCD</b> | <b>ENT</b>, <b><text></b> | Write entrance screen (text <= 32 chars, commas escaped as <b>\;</b>) |
+| <b>SERVO</b> | <b>ENT</b>, <b>OPEN</b> / <b>CLOSE</b> | Command the barrier |
+| <b>TARE</b> | --- | Zero the HX711 |
+| <b>CFG</b> | <b><param></b>, <b><values></b> | Set a threshold (e.g. <b>CFG,DIST_TRIG,12</b>) | 
+| <b>SYNC</b> | --- | Request full device state; used after a Pi restart |
+| <b>PING</b> | --- | Liveness check |
