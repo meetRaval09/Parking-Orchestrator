@@ -24,3 +24,27 @@
 | Encoding | ASCII, line-oriented | Readable in a serial monitor with no decoder |
 
 ### Why ASCII and not binary. Binary would be perhaps four times smaller. At 115200 baud with a few frames per second, that saving is worth nothing, and it costs the ability to open a serial monitor during a demo and read what the system is saying. For a bench system, debuggability beats effciency - and the bandwidth headroom makes it a free choice rather than a compromise.
+
+# 1.2 Frame format -
+
+| Field | Format | Notes |
+|---|---|---|
+| <b>#</b> | literal | Start delimiter. Anything before it is discarded. |
+| <b>seq</b> | 1-999, decimal | Wraps at 999. Matches a reply to its command and detects duplicates. |
+| <b>VERB</b> | 3-6 uppercase letters | Message type |
+| <b>aeg</b> | comma-separated, no spaces | Verb-specific |
+| <b>*</b> | literal | End of checksummed region |
+| <b>chk</b> | 2 hex digits | XOR of every byte between <b>#</b> and <b>*</b>, exclusive |
+| <b>\n</b> | 0x0A | Terminator |
+
+### The XOr-between-delimiters checksum is the NMEA 0183 scheme-worth naming in the report, because adopting an established format rather than inventing one is itself a defensible decision.
+
+## Examples :
+
+# 042,LED,ENT,GREEN*3c       Pi --> Arduino
+# 042,ACK*7A                 Arduino --> Pi
+# 118,TAG,ENT,A42F9103*5E    Arduino --> Pi
+# 118,ACK*41                 Pi --> Arduino
+# 043,SERVO,ENT,OPEN*12      Pi --> Arduino
+# 043,NAK,BUSY*08            Arduino --> Pi
+
