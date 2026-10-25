@@ -61,3 +61,27 @@
 | <b>CFG</b> | <b><param></b>, <b><values></b> | Set a threshold (e.g. <b>CFG,DIST_TRIG,12</b>) | 
 | <b>SYNC</b> | --- | Request full device state; used after a Pi restart |
 | <b>PING</b> | --- | Liveness check |
+
+
+## Arduino --> Pi (events)
+
+| Verb | Args | Meaning | State machine event |
+|---|---|---|---|
+| <b>DIST</b> | <b><cm></b> | Ultrasonic reading, on threshold crossing | E1 / E2 |
+| <b>SETTLED</b> | <b>ENT</b> | Distance stable at read position for T<sub>1</sub> | E3 |
+| <b>TAG</b> | <b>ENT</b>,<b><uid hex></b> | Tag read at the entrance reader | E4 |
+| <b>NOTAG</b> | <b>ENT</b> | Read window elapsed with no tag | E5 |
+| <b>WGT</b> | <b><grams></b> | Weight reading | - (feeds E7) |
+| <b>BEAM</b> | <b>ENT</b>, <b>BROKEN</b> / <b>CLEAR</b> | Clearance sensor edge | E11a / E11b |
+| <b>SERVO</b> | <b>ENT</b>, <b>OPENED</b> / <b>CLOSED</b> | Barrier reached position | E13 |
+| <b><b>FAULT</b> | <b><device></b>, <b><code></b> | Device unavailable | E16 |
+| <b>BOOT</b> | <b><fw></b> | Arduino started or reset | - (triggers <b>SYNC</b>) |
+
+### That last colemn is the point of the document. Every state machine event has exactly one protocol message that produces it, and every message maps to a state machine event or is explicitly marked as feeding one. A message with no event is dead protocol; an event with no message is a transition nothing can trigger. Both are bugs, and the table is how you find them.
+
+## Two entrance events have no message, deliberately :
+
+| Event | Source | Why not on this link |
+|---|---|---|
+| E9 <b>spot_reserved</b>, E10 <b>no_spot_free</b>, E14 <b>spot_became_free</b> | Pi- internal | Spot state lives on the Pi. These never cross the link. |
+| E15<b>staff_clear</b> | Operator | Out of band |
