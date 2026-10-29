@@ -112,6 +112,12 @@
 
 ### That's the general principle, and it's worth stating in the report: an event that only means something in a sequence needs a state to record that the sequence started. One extra state converts a silent data-corruption bug into a timeout and a staff alert
 
+# 6. Diagram -
+
+<p align="center">
+    <img src="./Exit_Phase_State_Machine_Diagram.png" alt="System Architecture" width="800">
+</p>
+
 # 7. Interaction with other machines -
 
 | This machine | Transition | Causes |
