@@ -151,6 +151,11 @@
 ### 3. The endstop stops the motor on the Arduino, without reference to this machine. 
 ### 4. The queue is bounded at four; it cannot overflow or starve.
 
+# 6. Diagram -
+
+<p align="center">
+    <img src="Parking_Phase_State_Machine_Diagram.png" alt="System Architecture" width="800">
+</p>
 
 # 7. Interaction with other machines -
 
