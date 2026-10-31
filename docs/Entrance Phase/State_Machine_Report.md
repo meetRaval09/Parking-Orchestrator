@@ -4,7 +4,7 @@
 
 ### The entrance phase is governed by one controller state machine - the <b>Entrance Gate</b> - which owns the sequence from a vehicle approaching to the barrier closing behind it. It runs on the Rasberry Pi 3. 
 
-### Two other machines are touched but not owned here. The <b>Spot</b> machine makes its <b>FREE -> Reserved</b> transition on a command from this phase, and the <b>Vehicle</b> machine is created by this phase and handed on the parking phase. Both are defined in their own section; this document names only the transition the entrance causes.
+### Two other machines are touched but not owned here. The <b>Spot</b> machine makes its <b>FREE -> Reserved</b> transition on a command from this phase, and the <b>Vehicle</b> machine is created by this phase and handed on the parking phase. Both are defined in their own section; this document names only the transition the entrance causes.//
 
 ### Exactly one Entrance Gate machine exist.
 
